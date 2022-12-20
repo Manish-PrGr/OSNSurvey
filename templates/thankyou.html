@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>thank you</title>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400&display=swap" rel="stylesheet">
+    <style media="screen">
+        body {
+            background: #FF597B;
+            font-family: 'Oxygen', sans-serif;
+        }
+
+        .confetti {
+            position: absolute;
+            display: inline-flex;
+            right: 17%;
+            ;
+            top: 12%;
+        }
+
+        .confetti-1 {
+            position: relative;
+            top: -17rem;
+            z-index: 50;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 0;
+            font-size: 72px;
+            animation: greet-h-pop 1s ease-out;
+        }
+
+        p {
+            text-align: center;
+            margin: 0;
+            font-size: 12px;
+            animation: greet-pop 1s ease-out;
+        }
+
+        .greeting {
+            position: relative;
+            top: 30vh;
+        }
+
+        @keyframes greet-h-pop {
+            0% {
+                opacity: 0;
+                font-size: 0px;
+            }
+
+            50% {
+                font-size: 76px;
+            }
+
+            100% {
+                opacity: 1;
+                font-size: 72px;
+            }
+        }
+
+        @keyframes greet-pop {
+            0% {
+                opacity: 0;
+                font-size: 0px;
+            }
+
+            50% {
+                font-size: 14px;
+            }
+
+            100% {
+                opacity: 1;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="greeting">
+        <h1>Thank You</h1>
+        <p>We appreciate your patience and support.</p>
+        <lottie-player src="https://assets10.lottiefiles.com/private_files/lf30_GXVoLb.json" background="transparent"
+            speed="1" class="confetti" style="width: 15rem; height: 15rem;" autoplay></lottie-player>
+        <lottie-player src="https://assets10.lottiefiles.com/private_files/lf30_GXVoLb.json" background="transparent"
+            speed="1" class="confetti" style="width: 15rem; height: 15rem; transform: rotate(90deg); left: 16%;"
+            autoplay></lottie-player>
+        <lottie-player src="https://assets5.lottiefiles.com/private_files/lf30_glegkhcn.json" background="transparent"
+            speed="0.5" class="confetti-1" style="width: 30rem; height: 30rem;" autoplay></lottie-player>
+    </div>
+</body>
+
+</html>

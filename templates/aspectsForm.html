@@ -1,0 +1,132 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Aspects Form</title>
+
+
+    <!-- CSS STYLESHEETS -->
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="{% static 'spinner.css' %}">
+
+    <!-- Google Fonts -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+</head>
+
+<body>
+    {% block content %}
+    <div class="loader">
+        <button class="load"></button>
+    </div>
+    <div class="conatiner-fluid main" style="display: none;">
+        <div class="greeting-card">
+            <p class="line-1 anim-typewriter" id="head">Hello...</p>
+        </div>
+        <div class="card" id="card-box">
+            <div class="top-border"></div>
+            <div class="card-body">
+                <p class="line-up" id="question">Enter your Registered Number:</p>
+            </div>
+        <div class="button" style="position:relative;">
+            <span class="material-symbols-rounded prev-button" id="prev"
+                style="position:absolute; left:6vh; cursor:pointer;z-index:50;"
+                onclick="prevButtonClicked()">arrow_back_ios</span>
+            <span class="material-symbols-rounded next-button" id="next"
+                style="position:absolute; right:6vh; cursor:pointer;z-index:50;"
+                onclick="nextButtonClicked()">arrow_forward_ios</span>
+        </div>
+            <form method="post" action="/thankyou/" autocomplete="off" name="survey-form">
+                {% csrf_token %}
+                <div class="input-options" id="alt-opt-0">
+                    <input type="text" name="Rno" value="" id="i-99" class="inputID" style="outline: none;">
+                </div>
+                <div class="options" id="alt-opt-1" style="display: none;">
+                    <button type="button" name="Not Interested" class="opt0 opt" id="no-1"
+                        onclick="optionClicked(this.id)" style="outline: none;">Not Interested</button>
+                    <button type="button" name="Interested" class="opt1 opt" id="yes-1" onclick="optionClicked(this.id)"
+                        style="outline: none;">Interested</button>
+                    <input type="text" name="User_Aspect1" value="" id="i-1" style="display: none;">
+                </div>
+                <div class="options" id="alt-opt-2" style="display: none;">
+                    <button type="button" name="Rarely" class="opt0 opt" id="no-2" onclick="optionClicked(this.id)"
+                        style="outline: none;">Rarely</button>
+                    <button type="button" name="Mostly" class="opt1 opt" id="yes-2" onclick="optionClicked(this.id)"
+                        style="outline: none;">Mostly</button>
+                    <input type="text" name="User_Aspect2" value="" id="i-2" style="display: none;">
+                </div>
+                <div class="options" id="alt-opt-3" style="display: none;">
+                    <button type="button" name="Now and then" class="opt0 opt" id="no-3"
+                        onclick="optionClicked(this.id)" style="outline: none;">Now and then</button>
+                    <button type="button" name="Usually" class="opt1 opt" id="yes-3" onclick="optionClicked(this.id)"
+                        style="outline: none;">Usually</button>
+                    <input type="text" name="User_Aspect3" value="" id="i-3" style="display: none;">
+                </div>
+                <div class="options" id="alt-opt-4" style="display: none;">
+                    <button type="button" name="Doesn't like" class="opt0 opt" id="no-4"
+                        onclick="optionClicked(this.id)" style="outline: none;">Doesn't like</button>
+                    <button type="button" name="Like to follow" class="opt1 opt" id="yes-4"
+                        onclick="optionClicked(this.id)" style="outline: none;">Like to follow</button>
+                    <input type="text" name="User_Aspect4" value="" id="i-4" style="display: none;">
+                </div>
+                <div class="options" id="alt-opt-5" style="display: none;">
+                    <button type="button" name="Discourage" class="opt0 opt" id="no-5" onclick="optionClicked(this.id)"
+                        style="outline: none;">Discourage</button>
+                    <button type="button" name="Encourage" class="opt1 opt" id="yes-5" onclick="optionClicked(this.id)"
+                        style="outline: none;">Encourage</button>
+                    <input type="text" name="User_Aspect5" value="" id="i-5" style="display: none;">
+                </div>
+                <div class="sub-option" id="alt-sub" style="display: none;">
+                    <input type="submit" name="submit" class="opt" id="sub" style="outline: none;"></input>
+                </div>
+            </form>
+            <div class="toggle-buttons">
+                <button type="button" name="0" class="togglers" id="0" onclick="buttonClicked(this.id)"></button>
+                <button type="button" name="1" class="togglers" id="1" onclick="buttonClicked(this.id)"></button>
+                <button type="button" name="2" class="togglers" id="2" onclick="buttonClicked(this.id)"></button>
+                <button type="button" name="3" class="togglers" id="3" onclick="buttonClicked(this.id)"></button>
+                <button type="button" name="4" class="togglers" id="4" onclick="buttonClicked(this.id)"></button>
+                <button type="button" name="5" class="togglers" id="5" onclick="buttonClicked(this.id)"></button>
+                <button type="button" name="6" class="togglers" id="6" onclick="submitButton(this.id)"></button>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer-div" id="social-access">
+        <a href="https://twitter.com/Manishs40065563" class="twitter-follow-button">
+            <i class="fa-brands fa-twitter social-icons twitter-btn"></i>
+        </a>
+        <a href="https://www.instagram.com/claw.c4ph9r/" class="instagram-follow-button">
+            <i class="fa-brands fa-instagram social-icons instagram-btn"></i>
+        </a>
+        <a href="mailto:claw.c4ph9r@gmail.com" class="email-follow-button">
+            <i class="fa-solid fa-envelope social-icons email-btn"></i>
+        </a>
+        <a href="https://github.com/Manish-PrGr" class="github-follow-button">
+            <i class="fa-brands fa-github social-icons github-btn"></i>
+        </a>
+        <a href="https://www.facebook.com/manish.sb.790/" class="facebook-follow-button">
+            <i class="fa-brands fa-facebook-f social-icons facebook-btn"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/manish-s-5659531b6/" class="linkedin-follow-button">
+            <i class="fa-brands fa-linkedin-in social-icons linkedin-btn"></i>
+        </a>
+    </div>
+
+
+    <script type="text/javascript" src="{% static 'script.js' %}"></script>
+    {% endblock %}
+</body>
+
+</html>
